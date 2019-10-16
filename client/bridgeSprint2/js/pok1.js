@@ -123,7 +123,10 @@ games.on("success",(res) => console.log(res));
 
 
 
+console.log("dec "+declarerscore);
 
+
+console.log("def "+defenderscore);
 
 
 var $container = document.getElementById('container');
@@ -3618,6 +3621,13 @@ games.on('PosPressed',function(data){
     
 
 });
+
+
+
+
+var dcs= we.innerHTML.value ;
+
+alert(dcs);
 
 
 games.on("passatstartcount2",function(data){

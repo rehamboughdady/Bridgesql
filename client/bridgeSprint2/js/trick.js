@@ -59,6 +59,8 @@ console.log("start"+start);
     
    console.log(player1);
      
+
+
     // scorearray2=score(declarerscoree,defenderscoree,lastpid,0,0,0);
     // games.emit('beforescore','');
     // games.emit('scorearray',scorearray2);
@@ -1276,6 +1278,8 @@ else if((n4 > n1) && (n4 > n2) && (n4 > n3) )
         we.innerHTML = "Deaclar:" + data;
         console.log("declarer");
     declarerscore=data;
+   // alert("dec "+declarerscore);
+   games.emit("decscore",declarerscore);
     });
     games.on('c2',function(data){
     
@@ -1283,7 +1287,8 @@ else if((n4 > n1) && (n4 > n2) && (n4 > n3) )
         they.innerHTML = "Defender :" + data;
 
         defenderscore=data;
-    
+        games.emit("defscore",defenderscore);
+    //    alert("def "+defenderscore);
     });
     }
     
@@ -1295,6 +1300,7 @@ else if((n4 > n1) && (n4 > n2) && (n4 > n3) )
       //var data1=data1+data;
         we.innerHTML = "Deaclar:" + data;
         declarerscore=data;
+        games.emit("decscore",declarerscore);
     
     });
     games.on('c1',function(data){
@@ -1302,12 +1308,36 @@ else if((n4 > n1) && (n4 > n2) && (n4 > n3) )
        //  var data2=data2+data;
         they.innerHTML = "Defender :" + data;
         defenderscore=data;
+        games.emit("defscore",defenderscore);
     });
 
     }
 
 
+
+
+
+    // var dfs;
+    // var ts;
+    // games.on('dcs',function(data){
+    // dcs =data;
+    // });
     
+    
+    // games.on('dfs',function(data){
+    //     dfs=data;
+    // });
+    
+    // ts=dcs+dfs;
+    
+    
+    // alert("ts"+ts);
+    
+    
+
+
+    //alert("dec "+declarerscore);
+    //alert("def "+defenderscore);
     var startTrickPlayer="";
     
     if(startTrick == "north")

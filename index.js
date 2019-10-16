@@ -456,6 +456,22 @@ socket.on('inputpid',function(data){
 });
 
 
+var dcs;
+var dfs;
+var ts;
+socket.on('decscore',function(data){
+dcs =data;
+io.of("/games").in(room).emit('dcs',dcs);
+//console.log("dec "+dcs);
+});
+
+
+socket.on('defscore',function(data){
+dfs=data;
+io.of("/games").in(room).emit('dfs',dfs);
+//console.log("def "+dfs);
+});
+
 
 socket.on('starttrick',function(data){
 console.log("start trick is "+data);
