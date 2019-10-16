@@ -1,0 +1,279 @@
+ 
+
+body {
+  background-image:url('../images/background.jpg');
+  background-position:center;
+  background-size: cover; 
+  max-width: 100%;
+ background-attachment: fixed;
+ background-repeat: no-repeat;
+  transition: all 2s ease-in-out 0s ;
+}
+h3{
+  color: white;
+  font-size: 34px;
+ font-family: 'Staatliches', cursive;
+}
+
+select{
+  padding: 3%;
+    font-size: 19px;
+    border: 1px solid #5cb85c;
+    border-radius: 7px;
+
+}
+
+#forget{
+  background: none;
+  font-size: 16px;
+  width: 50%;
+   
+    border-radius: 40px;
+    padding: 12px 0;
+ 
+    font-weight: bold;
+    margin-bottom: 32px;
+    outline: none;
+    margin: auto;
+    border: none;
+    color: white;
+}
+
+#forget:hover {
+  background-color: none !important;
+  border-color: none !important;
+  color: #5cb85c;
+}
+
+/* well */
+.well{
+  margin-top: 5%;
+  /* background: rgba(255,255,255,0.3); */
+  padding: 56px !important;
+}
+.container-bg{
+  background: rgba(0,0,0,0.4);
+    border-radius: 5px;
+    padding-bottom: 2%;
+    height: 430px;
+   
+}
+.login-card-footer a{
+  color: white;
+  text-decoration: none;
+}
+
+
+.form-field input {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  text-align: center;
+  width: 100%;
+  border-radius: 16px;
+  height: 36px;
+  background:white;
+  color: red;
+  outline: none;
+  transition: all 0.2s;
+  
+}
+
+.form-field{
+  padding-left: 8px;
+  margin-left: 0;
+  margin-right: 0;
+  font-size: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+
+.form-field input::placeholder {
+  color: white;
+}
+
+/* .form-field input:hover, */
+.form-field input:focus {
+  background: white;
+  color: #d61e2d;
+  transition: all 0.2s;
+}
+
+.form-field input::placeholder {
+  color: #d61e2d;
+}
+
+/* h1 */
+#hero{
+  display: flex;
+  justify-content: center;
+  text-shadow: 3px 3px 10px black;
+  font-family: 'Staatliches', cursive;
+  font-size: 50px;
+  font-weight: 600;
+  color:white;
+  padding-top: 23px;
+}
+
+/* MIXIN */
+.flexbox {
+  display: flex;
+  justify-content: center;
+ align-content: center;
+
+}
+
+.reg{
+  margin:2%;
+}
+
+.fa{
+  cursor: pointer;
+}
+
+.flex-item {
+/*  background-image: url(../images/suit.jpg);*/
+    background-size: cover;
+    background-position: center;
+    background: rgba(0,0,0,0.7);
+  padding: 5px ;
+  border-radius: 0.5em;
+  text-align: center;
+/*  margin-bottom: 1em;*/
+  width: 23%;
+  border: 2px solid white;
+  margin: 1%;
+    
+
+}
+
+.flex-item:hover{
+  border:rgba(0,0,0,0.7);
+}
+
+.border-radius--grow {
+  outline: none;
+  box-shadow: 0 0 0 0#00fff5;
+  transition: box-shadow 0.25s ease-in;
+}
+
+.border-radius--grow:focus {
+  border:none;
+  box-shadow:  0 0 20px #00fff5, inset 0 0 10px #00fff5;
+  border-radius: 24%;
+}
+
+.sold{
+  width: 50%;
+  background-color:#31b0d5;
+  border-color: #269abc; 
+}
+
+.sold:hover{
+  background-color:#31b0d5 !important;
+  border-color: #269abc !important; 
+}
+
+.level{
+  display: flex;
+  justify-content: center;
+}
+
+
+
+a, [data-target] {
+  cursor:pointer;
+}
+
+.help{
+  display: flex;
+  justify-content: center;
+ 
+}
+.btn-info {
+  color: #fff;
+  background-color: #5cb85c;
+  border-color: #f0ad4e;
+}
+
+.btn-info:hover {
+ 
+  background-color: #5cb85c !important;
+  border-color: #f0ad4e !important;
+}
+label{
+  color: white;
+  text-align: center;
+  font-size: 15px;
+}
+
+#buttonS {
+  background: #5cb85c;
+    display: block;
+    color: #f3f9f5;
+    width: 50%;
+    border: none;
+    border-radius: 40px;
+    padding: 12px 0;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 32px;
+    outline: none;
+    margin: auto;
+}
+
+
+/* i */
+
+i {
+	position: absolute;
+	top: 13%;
+	left: 70%;
+	font-size: 1.5rem;
+	color:#0028f7 !important;
+  opacity: .5;
+  
+}
+
+.fa-eye-slash {
+	opacity: 0;
+}
+
+a{
+  margin-top: 4px;
+}
+#btnm{
+   margin-right: 27px;
+}
+.update {
+  display: none;
+  padding: 10px;
+  /* width: 20%;
+  min-width: 275px; */
+  background: rgba(255, 255, 255, .2);
+  color: rgba(255, 255, 255, 1);
+  margin-top: 10px;
+  transition: all .2s ease-out;
+}
+
+.failure {
+  background: rgba(255, 0, 0, .6);
+}
+.success {
+  background: rgba(0, 255, 0, .6);
+}
+
+/* media */
+@media (max-width: 768px) {
+#hero{
+  font-size: 41px;
+}
+.well{
+  padding: 27px !important;
+}
+
+}
+@media (max-width: 767px) {
+.update{
+
+}
+}

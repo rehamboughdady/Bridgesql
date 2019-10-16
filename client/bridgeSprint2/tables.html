@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>tables</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- bootstrap3 -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <!-- fonts -->
+  <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Staatliches" rel="stylesheet">
+  <!-- scripy -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="css/tables.css">
+</head>
+
+<body>
+  <div class="room">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6 col-sm-offset-3">
+          <div class="well mt-10vh">
+            <h1 class="center-block mt--40 mb-50" id="hero" width="100%"><label id="lbl_title"></label></h1>
+            <!-- table empty -->
+            <div class="flexbox">
+              <div class="d-flex flex-item heart border-radius--grow" style="height:200px">
+                <!-- <div class="p-2 border btn btn-empty">play</div>
+                <div onclick="javascript:GetPlayer(this.id);" id="t1p4" class="p-2 border btn btn-empty one d-none">
+                  <p>sam</p>
+                </div> -->
+                <div onclick="javascript:GetPlayers(this.id);"  id="t1p4"   class="p-2 border btn btn-empty">play</div> 
+                <div onclick="javascript:GetPlayers(this.id);" id="t1p1" class="p-2 border align-self-start btn btn-empty-two">play</div>
+                <div onclick="javascript:GetPlayers(this.id);" id="t1p3" class="p-2 border align-self-end btn play-btn btn-empty-three">play</div>
+                <div onclick="javascript:GetPlayers(this.id);" id="t1p2" class="p-2 border btn play-btn ">play</div>
+              </div>
+              <!-- table1 -->
+              <div class="d-flex flex-item heart border-radius--grow" style="height:200px">
+                <div onclick="javascript:GetPlayers(this.id);" id="t2p4" class="p-2 border btn btn-empty one"></div>
+                <div onclick="javascript:GetPlayers(this.id);" id="t2p1" class="p-2 border align-self-start btn btn-empty-two" data-toggle="modal" data-target="#myModal">play</div>
+                <div onclick="javascript:GetPlayers(this.id);" id="t2p3" class="p-2 border align-self-end btn play-btn btn-empty-three" data-toggle="modal" data-target="#myModal-approve">play</div>
+                <div onclick="javascript:GetPlayers(this.id);" id="t2p2" class="p-2 border btn play-btn ">play</div>
+              </div>
+              <!-- table1 -->
+              <div class="d-flex flex-item heart border-radius--grow" style="height:200px">
+                <div onclick="javascript:GetPlayers(this.id);" id="t3p4" class="p-2 border btn btn-empty one"></div>
+                <div onclick="javascript:GetPlayers(this.id);" id="t3p1" class="p-2 border align-self-start btn btn-empty-two two"></div>
+                <div onclick="javascript:GetPlayers(this.id);" id="t3p3" class="p-2 border align-self-end btn play-btn btn-empty-three three"></div>
+                <div onclick="javascript:GetPlayers(this.id);" id="t3p2" class="p-2 border btn play-btn ">play</div>
+              </div>
+              <!-- end -->
+              <div class="d-flex flex-item heart border-radius--grow" style="height:200px">
+                <div onclick="javascript:GetPlayers(this.id);" id="t4p4" class="p-2 border btn btn-empty one"></div>
+                <div onclick="javascript:GetPlayers(this.id);" id="t4p1" class="p-2 border align-self-start btn btn-empty-two two"></div>
+                <div onclick="javascript:GetPlayers(this.id);" id="t4p3" class="p-2 border align-self-end btn play-btn btn-empty-three">play</div>
+                <div onclick="javascript:GetPlayers(this.id);" id="t4p2" class="p-2 border btn play-btn ">play</div>
+              </div>
+              <div class="d-flex flex-item heart border-radius--grow" style="height:200px">
+                <div onclick="javascript:GetPlayers(this.id);" id="t5p4" class="p-2 border btn btn-empty one"></div>
+                <div onclick="javascript:GetPlayers(this.id);" id="t5p1" class="p-2 border align-self-start btn btn-empty-two two"></div>
+                <div onclick="javascript:GetPlayers(this.id);" id="t5p3" class="p-2 border align-self-end btn play-btn btn-empty-three three"></div>
+                <div onclick="javascript:GetPlayers(this.id);" id="t5p2" class="p-2 border btn play-btn btn-empty-four four"></div>
+              </div>
+                <!-- <div class="d-flex flex-item heart border-radius--grow" style="height:200px">
+                <div onclick="javascript:GetPlayers(this.id);" id="t6p4" class="p-2 border btn play-btn ">play</div>
+                <div onclick="javascript:GetPlayers(this.id);" id="t6p1" class="p-2 border btn play-btn ">play</div>
+                <div onclick="javascript:GetPlayers(this.id);" id="t6p3" class="p-2 border btn play-btn ">play</div>
+                <div onclick="javascript:GetPlayers(this.id);" id="t6p2" class="p-2 border btn play-btn ">play</div>
+              </div> -->
+              <div class=' col-xs-12  interface text-center'>
+                <br>
+                <br> <a href="index.html" class='btn btn-danger sold'>Confirm<br></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Modal Header</h4>
+          </div>
+          <div class="modal-body">You will wait until the admin approve</div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 2modal -->
+    <div class="modal fade" id="myModal-approve" role="dialog">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Modal Header</h4>
+          </div>
+          <div class="modal-body">"Player Name" waiting your approval to join</div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end container -->
+  </div>
+  <script src="js/jquery-3.2.1.min.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/tables.js"></script>
+</body>
+
+</html>

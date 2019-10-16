@@ -1,0 +1,61 @@
+body{
+  margin: 0px;
+   background-image:url('../images/background.jpg');
+   background-position: center;
+   background-size: cover; 
+  background-repeat: no-repeat;
+  max-width: 100%;
+  background-attachment: fixed;
+   
+}
+
+.well{
+  margin-top: 10%;
+  background-color: rgba(225,225,225,0.3);
+} 
+
+h2{
+  color:white;
+  text-shadow: 3px 3px 10px black;
+  font-weight: 600;
+  font-size: 50px;
+  font-family: 'Staatliches', cursive !important;
+  display: flex;
+  justify-content: center;
+}
+
+
+.flexbox {
+  color: white;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+
+.flex-item {
+  padding: 5px ;
+  border-radius: 0.5em;
+  text-align: center;
+  margin-bottom: 1em;
+  width: 46%;
+  background-color: rgba(0,0,0,0.3);
+  margin: 2%;
+  font-size: 25px;
+  font-weight: bold;
+  font-family: 'Staatliches', cursive;
+  padding: 1em 0;
+  cursor: pointer;
+}
+
+.flex-item:hover{
+  color:#00fff5;
+}
+
+.sold{
+  width: 50%;
+  padding:1em 0;
+}
+
+/* media */

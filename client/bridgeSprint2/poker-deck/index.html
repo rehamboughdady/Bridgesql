@@ -1,0 +1,58 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="node_modules/deck-of-cards/example/example.css">
+</head>
+<body>
+        <script src="node_modules/deck-of-cards/dist/deck.min.js"></script>
+
+    <div id="container"></div>
+    <div id="topbar"></div>
+    <script>
+        var $container = document.getElementById('container');
+
+        // create Deck
+        var deck = Deck();
+
+        // add to DOM
+        deck.mount($container);
+
+        deck.cards.forEach(function (card, i) {
+            card.setSide('back');
+            if(i<=26){
+                card.animateTo({
+                delay: 1000 + i * 2, // wait 1 second + i * 2 ms
+                duration: 500,
+                ease: 'quartOut',
+
+                x: Math.random()* window.innerWidth- window.innerWidth / 2,
+                y: 1 * window.innerHeight - window.innerHeight 
+                
+            });
+            }
+            
+            // explode
+            if(i>26){
+                card.animateTo({
+                delay: 1000 + i * 2, // wait 1 second + i * 2 ms
+                duration: 500,
+                ease: 'quartOut',
+
+                x: 1* window.innerWidth- window.innerWidth ,
+                y: Math.random()* window.innerHeight - window.innerHeight /2
+                
+            });
+            }
+            card.enableDragging();
+            card.enableFlipping();
+        });
+        
+    </script>
+    <script src="node_modules/deck-of-cards/dist/deck.min.js"></script>
+    <script src="js/script.js"></script>
+    <!-- <script src="../"></script> -->
+</body>
+</html>

@@ -1,0 +1,431 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bridge</title>
+    <!-- bootstrap 3 -->
+    <!-- <link rel="stylesheet" href="./poker-deck/node_modules/deck-of-cards/example/example.css"> -->
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+  <!-- styles -->
+  <link rel="stylesheet" href="./poker-deck/node_modules/deck-of-cards/example/example.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  
+  
+  <link rel="stylesheet" type="text/css" href="css/score.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+
+</head>
+<body>
+        <script src="./node_modules/deck-of-cards/dist/deck.min.js"></script>
+        <div class="super_container">
+    <nav class="navbar navbar-inverse navbar-fixed-left">
+       
+                
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-controls="navbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+          
+          <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                    <div class="intro">
+                            <center>
+                           <a class="active" href="#">BRIDGE</a>
+                         </center>
+                   </div>
+                   <!-- Button to Open the Modal -->
+                   <center>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+              Open modal
+            </button>
+          </center>
+            
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"></a>
+                <div id="declare">
+                    
+                        <P id="we">Declare :</P>
+                        <P id="they">Defender : </P>
+                        
+                      </div>
+             
+              
+               <!-- contract -->
+                <h4>Contract</h4>
+                <div id="contract">
+                  <P id="finalBidding"></P>
+                    <button class="Show">Bidding Review</button>
+                    <div id="targets">
+                      <div class="bidding-item">North</div>   
+                      <div class="bidding-item">East</div> 
+                       <div class="bidding-item">South</div>   
+                       <div class="bidding-item">West</div> 
+                    </div>
+                    <!-- The Modal -->
+                </div>
+             
+                  <div class="row">
+                        <div class="col-sm-6 col-xs-6">
+                          <button class="btn review stand">Stand up</button>
+                        </div>
+                        <div class="col-sm-6 col-xs-6">
+                          <button class="btn review stand">Options</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                    
+                            <div class="col-sm-4 col-xs-4">
+                              <button class="btn review">X</button>
+                            </div>
+                            <div class="col-sm-4 col-xs-4">
+                              <button class="btn review"><i class="fas fa-volume-mute"></i></button>
+                            </div>
+                            <div class="col-sm-4 col-xs-4">
+                                <button class="btn review"><i class="fas fa-question"></i></button>
+                              </div>
+                        </div>
+            </ul>
+         
+          </div>
+     
+      </nav>
+
+<!--  -->
+<div id="container"></div> 
+
+<div class="content">
+  <center>
+    <div id="score" class="container">
+            <!-- The Modal -->
+            <div class="modal" id="myModal">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                
+                  <!-- Modal Header -->
+                  <div class="modal-header text-center">
+                    <h4 class="modal-title">contract:<img src="images/2-d.png" width="20%">E-2</h4>
+                   
+                  </div>
+                  
+                  <!-- Modal body -->
+                  <div class="modal-body">
+                      <!-- 1 -->
+                 <div class="row contract score-game">
+                     <div class="col-md-5"></div>
+                     <div class="col-md-1"></div>
+                     <div class=" hero col-md-3 bero">we</div>
+                     <div class=" hero col-md-3 bero">They</div>
+                 </div>
+                 <!-- 2 -->
+                 <div class="row contract">
+                        <div class="col-md-5"><p class="score_point">Contract Points</p></div>
+                        <div class="col-md-1"><p class="score_point"></p></div>
+                        <div class="col-md-3"><p class="score_point">0</p></div>
+                        <div class="col-md-3"><p class="score_point">0</p></div>
+                </div>
+
+                <!-- 3 -->
+                <div class="row contract">
+                   
+                        <div class="col-md-5"><p class="score_point">overtrick points</p></div>
+                        <div class="col-md-1"><p class="score_point"></p></div>
+                        <div class="col-md-3"><p class="score_point">0</p></div>
+                        <div class="col-md-3"><p class="score_point">0</p></div>
+                </div>
+                <!-- 4 -->
+                <div class="row contract">
+                   
+                        <div class="col-md-5"><p class="score_point">slam Bonus</p></div>
+                        <div class="col-md-1"><p class="score_point"></p></div>
+                        <div class="col-md-3"><p class="score_point">0</p></div>
+                        <div class="col-md-3"><p class="score_point">0</p></div>
+                </div>
+
+                <!-- 5 -->
+                <div class="row contract">
+                   
+                        <div class="col-md-5"><p class="score_point">Double bonus</p></div>
+                        <div class="col-md-1"><p class="score_point"></p></div>
+                        <div class="col-md-3"><p class="score_point">0</p></div>
+                        <div class="col-md-3"><p class="score_point">0</p></div>
+                     
+                </div>
+
+                <!-- 6 -->
+
+                <div class="row contract">
+                   
+                        <div class="col-md-5 "><p class="score_point">undertrick pently</p></div>
+                        <div class="col-md-1 "><p class="score_point"></p></div>
+                        <div class="col-md-3 "><p class="score_point">0</p></div>
+                        <div class="col-md-3 "><p class="score_point">100</p></div>
+                </div>
+
+                <!-- 7 -->
+              
+                <div class="row contract bg-bord">
+                   
+                        <div class="col-md-5 "><p class="score_point">Honor BONUS</p></div>
+                        <div class="col-md-1 "><p class="score_point"></p></div>
+                        <div class="col-md-3 "><p class="score_point">0</p></div>
+                        <div class="col-md-3 "><p class="score_point">0</p></div>
+                     
+                </div>
+                <!-- 2 table -->
+                <div class="row contract game">
+                   
+                        <div class="col-md-5 "><p class="score_point">Above the line</p></div>
+                        <div class="  col-md-1 "><p class="score_point">points</p></div>
+                        <div class="  col-md-3 "><p class="score_point">100 </p></div>
+                        <div class="  col-md-3 "><p class="score_point">0</p></div>
+                     
+                </div>
+                <div class="row contract game">
+                   
+                        <div class="col-md-5 "><p class="score_point">Below the line</p></div>
+                        <div class="col-md-1 "><p class="score_point">Game1</p></div>
+                        <div class="col-md-3 "><p class="score_point">0</p></div>
+                        <div class="col-md-3 "><p class="score_point">0</p></div>
+                     
+                </div>
+                <div class="row contract game">
+                   
+                        <div class="col-md-5 "></div>
+                        <div class="col-md-1 "><p class="score_point">Game2</p></div>
+                        <div class="col-md-3 "><p class="score_point">0</p></div>
+                        <div class="col-md-3 "><p class="score_point">0</p></div>
+                     
+                </div>
+                <div class="row contract game">
+                  
+                        <div class="col-md-5 "><p class="score_point"></p></div>
+                        <div class="col-md-1 "><p class="score_point">Game3</p></div>
+                        <div class="hero col-md-3 "><p class="score_point">0</p></div>
+                        <div class="hero col-md-3 "><p class="score_point">0</p></div>
+                     
+                </div>
+               
+                <div class="row contract  result">
+                        <div class="col-md-5 "><p class="score_point">Total Points</p></div>
+                        <div class="col-md-1 "><p class="score_point"></p></div>
+                        <div class="col-md-3 "><p class="score_point">100</p></div>
+                        <div class="col-md-3 "><p class="score_point">0</p></div>
+                     
+                </div>
+                    <!-- end container -->
+                  </div>
+                  
+                  <!-- Modal footer -->
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">continue</button>
+                    
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </center>
+
+         
+        <div class="container mt-3" id="hero">
+          <div id="hiddenplayer">
+                  <i class="fa fa-arrow-right arrow-dis"></i>
+                  <div id="oldWest" class="direction"></div>
+                  <div id="drag-one">
+                    
+                  </div>
+                  
+                  <div class=" gamer-col">
+                      <i class="fa fa-arrow-down arrow-dis"></i>
+                      <div id="oldNorth" class="direction"></div>
+                      <div id="drag-two"></div>
+                    
+                      <div class="direction" id="oldSouth">
+                        <!-- <p id="demo"></p> -->
+                      </div>
+                      <div id="drag-three"></div>
+                      <i class="fa fa-arrow-right arrow-dis up"></i>
+                  </div>
+                  <div id="oldEast" class="direction"></div>
+                  <i class="fa fa-arrow-left arrow-dis"></i>
+                  <div id="dragMedia"></div>
+           </div>
+
+           <div id="temp"></div>
+      </div>
+
+    
+              </div>
+            
+             <!--  -->
+
+
+
+  <!-- Pidding Board -->
+<!-- modal -->
+<div class="super-container">
+<div id="modalOverlay" style="display:none">
+    <div id="modal_bidding" class="modalPopup">
+  <div class="modal-header">
+    <div class="ex1" id="bidDiv">
+      <div class="bidding-item">North</div>
+      <div class="bidding-item">East</div>
+      <div class="bidding-item">South</div>
+      <div class="bidding-item">West</div>
+      <div id="div_biddresult"></div>  
+    </div>
+  </div>
+  <div class="modalContent">
+    <div class="flexbox">
+      <button onclick="javascript:pidClick(this);" class="flex-item flower pidClick" style="background-image:url('images/1-c.png');"></button>
+      <button onclick="javascript:pidClick(this);" class="flex-item black pidClick" style="background-image:url('images/1-d.png');"></button>
+      <button onclick="javascript:pidClick(this);" class="flex-item heart pidClick" style="background-image:url('images/1-h.png');"></button>
+      <button onclick="javascript:pidClick(this);" class="flex-item compass pidClick" style="background-image:url('images/1-s.png');"></button>
+      <button onclick="javascript:pidClick(this);" class="flex-item pidClick">1nt</button>
+      <!--        2      -->
+      <button onclick="javascript:pidClick(this);" class="flex-item flower flower2 pidClick" style="background-image:url('images/2-c.png');"></button>
+      <button onclick="javascript:pidClick(this);" class="flex-item black black2 pidClick" style="background-image:url('images/2-d.png');"></button>
+      <button onclick="javascript:pidClick(this);" class="flex-item heart heart2 pidClick" style="background-image:url('images/2-h.png');"></button>
+      <button onclick="javascript:pidClick(this);" class="flex-item  compass compass2 pidClick" style="background-image:url('images/2-s.png');"></button>
+      <button onclick="javascript:pidClick(this);" class="flex-item pidClick">2nt</button>
+      <!--    3    -->
+      <button onclick="javascript:pidClick(this);" class="flex-item flower flower3 pidClick" style="background-image:url('images/3-c.png');"></button>
+      <button onclick="javascript:pidClick(this);" class="flex-item black black3 pidClick"  style="background-image:url('images/3-d.png');"></button>
+      <button onclick="javascript:pidClick(this);" class="flex-item heart heart3 pidClick"  style="background-image:url('images/3-h.png');"></button>
+      <button onclick="javascript:pidClick(this);" class="flex-item  compass compass3 pidClick" style="background-image:url('images/3-s.png');"></button>
+      <button onclick="javascript:pidClick(this);" class="flex-item pidClick">3nt</button>
+      <!--             4-->
+      <button onclick="javascript:pidClick(this);" class="flex-item flower flower4 pidClick" style="background-image:url('images/4-c.png');"></button>
+      <button onclick="javascript:pidClick(this);" class="flex-item black black4 pidClick" style="background-image:url('images/4-d.png');"></button>
+      <button onclick="javascript:pidClick(this);" class="flex-item heart heart4 pidClick" style="background-image:url('images/4-h.png');"></button>
+      <button onclick="javascript:pidClick(this);" class="flex-item  compass compass4 pidClick" style="background-image:url('images/4-s.png');"></button>
+      <button onclick="javascript:pidClick(this);" class="flex-item pidClick">4nt</button>
+      <!--         5   -->
+      <button onclick="javascript:pidClick(this);" class="flex-item flower flower5 pidClick" style="background-image:url('images/5-c.png');"></button>
+      <button onclick="javascript:pidClick(this);" class="flex-item black black5 pidClick" style="background-image:url('images/5-d.png');"></button>
+      <button onclick="javascript:pidClick(this);" class="flex-item heart heart5 pidClick" style="background-image:url('images/5-h.png');"></button>
+      <button onclick="javascript:pidClick(this);" class="flex-item  compass compass5 pidClick" style="background-image:url('images/5-s.png');"></button>
+      <button onclick="javascript:pidClick(this);" class="flex-item pidClick">5nt</button>
+      <!--        6   -->
+      <button onclick="javascript:pidClick(this);" class="flex-item flower flower6 pidClick" style="background-image:url('images/6-c.png');"></button>
+      <button onclick="javascript:pidClick(this);" class="flex-item black black6 pidClick" style="background-image:url('images/6-d.png');"></button>
+      <button onclick="javascript:pidClick(this);" class="flex-item heart heart6 pidClick" style="background-image:url('images/6-h.png');"></button>
+      <button onclick="javascript:pidClick(this);" class="flex-item  compass compass6 pidClick" style="background-image:url('images/6-s.png');"></button>
+      <button onclick="javascript:pidClick(this);" class="flex-item pidClick">6nt</button>
+      <!--         7   -->
+      <button onclick="javascript:pidClick(this);" class="flex-item flower flower7 pidClick" style="background-image:url('images/7-c.png');"></button>
+      <button onclick="javascript:pidClick(this);" class="flex-item black black7 pidClick" style="background-image:url('images/7-d.png');"></button>
+      <button onclick="javascript:pidClick(this);" class="flex-item heart heart7 pidClick" style="background-image:url('images/7-h.png');"></button>
+      <button onclick="javascript:pidClick(this);" class="flex-item  compass compass7 pidClick" style="background-image:url('images/7-s.png');"></button>
+      <button onclick="javascript:pidClick(this);" class="flex-item pidClick">7nt</button>
+      <br>
+      <br>
+      <button class="buttonStyle"  id="buttons">continue</button>
+    </div>
+    <div class="col row">
+      <div class=' col-sm-3 interface text-center'>
+        <button onclick="javascript:pidClick(this);" class=' gold btn btn-danger sold pidClick' id="pass">PASS
+          <br>
+        </button>
+      </div>
+      <div class=' col-sm-3  interface text-center'>
+        <button class=' gold btn btn-danger active  sold pidClick dis' id="double">DOUBLE
+          <br>
+        </button>
+      </div>
+      <div class=' col-sm-3  interface text-center'>
+        <button class=' gold btn btn-danger sold pidClick dis' id="redouble">REDOUBLE
+          <br>
+        </button>
+      </div>
+      <div class=' col-sm-3  interface text-center'>
+        <button class=' gold btn btn-danger sold dis' id="score">SCORE
+          <br>
+        </button>
+      </div>
+    </div>
+  </div>
+  
+</div>
+
+
+</div>
+</div>
+
+
+ <section class="chat-window docked">
+  <div class="chat-header offline">
+    <p>Live Chat</p>
+    <span class="close"></span>
+  </div>
+  <div class="chat-body">
+   <div class="containe">
+       <div class="messages">
+         <div id="typing">
+          <div class="message">player typing:<br>
+        
+          <div id="messanger">
+              <div class="incoming">
+                 <p class="dots">
+                    
+                     <span id="wave" class="bubble">
+                         <span class="dot"></span>
+                         <span class="dot"></span>
+                         <span class="dot"></span>
+                     </span>
+                 </p>
+             </div>
+           </div>
+           
+          </div>
+        </div>
+       </div>
+      
+ 
+  <!-- end of three dots -->
+ 
+       <div class="inputs">
+          <textarea placeholder="Type msg Here"></textarea>
+          <div class="emoji-btn open">:]
+             <div class="emoji-popup"><div class="emoji-wrapper"></div></div>
+          </div>
+          <div class="btns" id="sendmsg">Send</div>
+       </div>
+
+    </div>
+   
+  </div>
+ 
+</section>
+ <!-- end container  -->
+ </div>
+<script src="js/jquery-3.2.1.min.js"></script> 
+<script src="./node_modules/deck-of-cards/dist/deck.min.js"></script>
+<script src="./poker-deck/js/poker.js"></script>
+<!-- <script> var socket = io.connect(); </script> -->
+<script> var socket = io(); </script>
+<script> var games = io.connect("http://localhost:1337/games");</script>
+<script src="js/pok1.js"></script>
+<script src="js/tables.js"></script>
+<script src="js/score.js"></script>
+<script src="js/trick.js"></script>
+<script src="js/CardsActavation.js"></script>
+<script src="js/southPosition.js"></script>
+<script src="js/chat.js"></script>
+<!-- <script src="js/pidActivation.js"></script> -->
+
+</body>
+</html>
