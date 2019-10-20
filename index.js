@@ -458,17 +458,19 @@ socket.on('inputpid',function(data){
 
 var dcs;
 var dfs;
-var ts;
+var ts=[];
 socket.on('decscore',function(data){
 dcs =data;
-io.of("/games").in(room).emit('dcs',dcs);
+ts[0]=data;
+io.of("/games").in(room).emit('ts',ts);
 //console.log("dec "+dcs);
 });
 
 
 socket.on('defscore',function(data){
 dfs=data;
-io.of("/games").in(room).emit('dfs',dfs);
+ts[1]=data;
+io.of("/games").in(room).emit('ts',ts);
 //console.log("def "+dfs);
 });
 

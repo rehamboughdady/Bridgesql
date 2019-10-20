@@ -3625,11 +3625,6 @@ games.on('PosPressed',function(data){
 
 
 
-var dcs= we.innerHTML.value ;
-
-alert(dcs);
-
-
 games.on("passatstartcount2",function(data){
     count = data;
     if(count == 3 && lastpid=="")
@@ -3672,6 +3667,28 @@ games.emit('declarer',res);
         document.getElementById('modalOverlay').style.display = 'none';
     }
 });
+
+
+
+
+var dcs=0;
+var dcs=0;
+var ts=0 ;
+
+games.on('ts',function(data){
+    dcs=data[0];
+    dfs=data[1];
+
+   ts=dcs+dfs;
+
+    console.log('dcs'+dcs);
+    console.log('dfs'+dfs);
+   console.log('ts'+ts);
+
+});
+
+
+
 
 function pidClick(clickedBtn) {
     // get id
