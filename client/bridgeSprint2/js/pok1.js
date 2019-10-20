@@ -3680,9 +3680,6 @@ games.on('ts',function(data){
     dfs=data[1];
 
    ts=dcs+dfs;
-
-    console.log('dcs'+dcs);
-    console.log('dfs'+dfs);
    console.log('ts'+ts);
 
 });
