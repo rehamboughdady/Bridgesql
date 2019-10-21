@@ -33,6 +33,7 @@ let playerPos = ["noth"];
 var position = "";
 var finalPos = "";
 var res;
+var vuln=0;
 var lastpid="";
 var finalBg;
 var pidId = ["pc1", "pd1", "ph1", "ps1", "pn1",
@@ -3674,13 +3675,31 @@ games.emit('declarer',res);
 var dcs=0;
 var dcs=0;
 var ts=0 ;
-
+var scorearray=[];
 games.on('ts',function(data){
     dcs=data[0];
     dfs=data[1];
 
    ts=dcs+dfs;
+
    console.log('ts'+ts);
+
+
+if (ts == 13)
+{
+      
+ console.log("scooooooooooooore"+ score(dcs,dfs,lastpid,vuln,0,0));
+
+
+ 
+
+     scorearray=score(dcs,dfs,lastpid,0,0,0);
+     scorearray.push(declarer);
+     scorearray.push(dcs);
+     scorearray.push(dfs);
+     games.emit('scorearray',scorearray);
+
+}
 
 });
 

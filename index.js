@@ -489,14 +489,6 @@ var c2=0;
 socket.on('trickscore',function(data){
 	var trickscore=data;
 	
-
-	
-	
-	
-
-
-
-
 	console.log("trickscore"+trickscore);
 	if(trickscore[0] ==1)
 	{ 
@@ -553,32 +545,92 @@ socket.on('trickscore',function(data){
 
 
 
-var c12= c1+c2;
+
 
 });
 
+
+var contract_points;
+var overtrick_points;
+var slam_bonus;
+var double_bonus;
+var undertrick_penalty;
+var honor_bonus_we=0;
+var honor_bonus_they=0;
+var declarer2;
 var decscore;
 var defscore;
 socket.on('scorearray',function(data){
-decscore=data[0];
-defscore=data[1];
-console.log("decscore"+decscore+"defscore"+defscore);
+	contract_points=data[0];
+	overtrick_points=data[1];
+	slam_bonus=data[2];
+	double_bonus=data[3];
+	undertrick_penalty=data[4];
+	declarer2=data[5];
+	decscore=data[6];
+	defscore=data[7];
 
-	  let sql = `UPDATE gamerounds SET Decs ='${decscore}' WHERE GameId = '${RoomName}'`;	
-			  let query = db.query(sql, (err, result) => {
-				  if(err) throw err;
-				  console.log(result);
-			//      res.send('Post 2 added...');
-			  });	
-			  let sql2 = `UPDATE gamerounds SET Defs ='${defscore}' WHERE GameId = '${RoomName}'`;	
-			  let query2 = db.query(sql2, (err, result) => {
-				  if(err) throw err;
-				  console.log(result);
-			//      res.send('Post 2 added...');
-			  });	
+
+
+
+	if(declarer2 == "noth" || declarer2 == "soth")
+	{
+	  // let sql = `UPDATE gamerounds SET Decs ='${decscore}',Defs ='${defscore}',ContractPoints_We ='${contract_points}',OverTrickPoints_We ='${overtrick_points}',SlamBonus_We='${slam_bonus}',DoubleBonus_We='${double_bonus}',UndertrickPenalty_They='${undertrick_penalty}',HonorBonus_We='${honor_bonus_we}',HonorBonus_They='${honor_bonus_they}',AboveTheLine_We='${slam_bonus}',AboveTheLine_They='${slam_bonus}',Game1_We='${slam_bonus}',Game1_They='${slam_bonus}',Game2_We='${slam_bonus}',Game2_They='${slam_bonus}',Game3_We='${slam_bonus}',Game3_They='${slam_bonus}',Total_We='${slam_bonus}',Total_They='${slam_bonus}' WHERE GameId = '${RoomName}'`;	
+	   let sql = `UPDATE gamerounds SET Decs ='${decscore}',Defs ='${defscore}',ContractPoints_We ='${contract_points}',OverTrickPoints_We ='${overtrick_points}',SlamBonus_We='${slam_bonus}',DoubleBonus_We='${double_bonus}',UndertrickPenalty_They='${undertrick_penalty}',HonorBonus_We='${honor_bonus_we}',HonorBonus_They='${honor_bonus_they}' WHERE GameId = '${RoomName}'`;	
+	   let query = db.query(sql, (err, result) => {
+		   if(err) throw err;
+		   console.log(result);
+	
+	   });	
+	   
+	}
+	else {  // (declarer2 == "east" || declarer2 == "west")
+		let sql2 = `UPDATE gamerounds SET Decs ='${decscore}',Defs ='${defscore}',ContractPoints_They ='${contract_points}',OverTrickPoints_They ='${overtrick_points}',SlamBonus_They='${slam_bonus}',DoubleBonus_They='${double_bonus}',UndertrickPenalty_We='${undertrick_penalty}',HonorBonus_We='${honor_bonus_we}',HonorBonus_They='${honor_bonus_they}' WHERE GameId = '${RoomName}'`;
+	   let query2 = db.query(sql2, (err, result) => {
+		   if(err) throw err;
+		   console.log(result);
+	
+	   });	
+	}
+		
+
+
+
+
+
+
+
 
 
 });
+
+
+
+
+
+// var decscore;
+// var defscore;
+
+// socket.on('scorearray',function(data){
+// decscore=data[0];
+// defscore=data[1];
+// console.log("decscore"+decscore+"defscore"+defscore);
+
+// 	  let sql = `UPDATE gamerounds SET Decs ='${decscore}' WHERE GameId = '${RoomName}'`;	
+// 			  let query = db.query(sql, (err, result) => {
+// 				  if(err) throw err;
+// 				  console.log(result);
+// 			//      res.send('Post 2 added...');
+// 			  });	
+// 			  let sql2 = `UPDATE gamerounds SET Defs ='${defscore}' WHERE GameId = '${RoomName}'`;	
+// 			  let query2 = db.query(sql2, (err, result) => {
+// 				  if(err) throw err;
+// 				  console.log(result);
+// 			//      res.send('Post 2 added...');
+// 			  });	
+
+
+// });
 
 
 socket.on('json',function(data){

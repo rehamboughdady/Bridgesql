@@ -1273,10 +1273,12 @@ else if((n4 > n1) && (n4 > n2) && (n4 > n3) )
   
     if(res == "noth" || res == "soth")
     {
+        console.log("reees"+res);
     games.on('c1',function(data){
       //var data1=data1+data;
-        we.innerHTML = "Deaclar:" + data;
-        console.log("declarer");
+      we.innerHTML = "Declarer:" + data;
+      console.log(  "weeeee"+ we.innerHTML );
+        console.log("declarer"+res);
     declarerscore=data;
    // alert("dec "+declarerscore);
    games.emit("decscore",declarerscore);
@@ -1284,8 +1286,8 @@ else if((n4 > n1) && (n4 > n2) && (n4 > n3) )
     games.on('c2',function(data){
     
        //  var data2=data2+data;
-        they.innerHTML = "Defender :" + data;
-
+       they.innerHTML = "Defender :" + data;
+       console.log(  "theeeeeeeey"+ they.innerHTML );
         defenderscore=data;
         games.emit("defscore",defenderscore);
     //    alert("def "+defenderscore);
@@ -1296,9 +1298,11 @@ else if((n4 > n1) && (n4 > n2) && (n4 > n3) )
     
     else if(res == "east" || res == "west")
     {
+        console.log("reees"+res);
     games.on('c2',function(data){
       //var data1=data1+data;
-        we.innerHTML = "Deaclar:" + data;
+       we.innerHTML = "Declarer:" + data;
+       console.log(  "weeeee"+ we.innerHTML );
         declarerscore=data;
         games.emit("decscore",declarerscore);
     
@@ -1306,7 +1310,8 @@ else if((n4 > n1) && (n4 > n2) && (n4 > n3) )
     games.on('c1',function(data){
     
        //  var data2=data2+data;
-        they.innerHTML = "Defender :" + data;
+       they.innerHTML = "Defender :" + data;
+       console.log(  "theeeeeeeey"+ they.innerHTML );
         defenderscore=data;
         games.emit("defscore",defenderscore);
     });
